@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-api
+spec:
+  replicas: {{ .Values.replicaCount }}                         
+  selector:
+    matchLabels:
+      app: orders-api    
+  template:                            
+    metadata:
+      labels:
+        app: orders-api     
+    spec:
+      containers:
+        - name: orders-api
+          # CI bumps this tag
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+      imagePullSecrets:
+        - name: ecr-pull-secret
