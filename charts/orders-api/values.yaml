@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
   repository: 458818121281.dkr.ecr.ap-southeast-1.amazonaws.com/orders-api
-  tag: 13-98baead
+  tag: 14-4e2f64c
 containerPort: 8088
 servicePort: 80
